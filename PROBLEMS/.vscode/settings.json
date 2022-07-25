@@ -90,7 +90,7 @@
         "valarray": "cpp",
         "variant": "cpp"
     },
-    "workbench.iconTheme": "Monokai Pro Icons",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.preferredLightColorTheme": "Dobri Next -A02- Bunker",
     "workbench.preferredDarkColorTheme": "Dobri Next -B01- Hard",
     "workbench.colorCustomizations": {
