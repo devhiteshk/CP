@@ -13,10 +13,10 @@ int main()
         long long min = 999999;
         for (long long i = 0; i < n; i++)
         {
-            cin>>arr[i];
+            cin >> arr[i];
         }
-        sort(arr,arr+n);
-        std::cout << arr[0]+arr[1] << std::endl;
+        sort(arr, arr + n);
+        std::cout << arr[0] + arr[1] << std::endl;
     }
     return 0;
 }
