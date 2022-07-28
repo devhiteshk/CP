@@ -1,0 +1,1 @@
+{"name":"Local: Valid_Minimum","url":"c:\\Users\\hites\\Desktop\\CP\\CC Contests\\Valid_Minimum.cpp","tests":[{"id":1658934137260,"input":"3\n5 5 5\n2 3 4\n2 2 4","output":"YES\nNO\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\hites\\Desktop\\CP\\CC Contests\\Valid_Minimum.cpp","group":"local","local":true}
