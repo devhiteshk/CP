@@ -20,7 +20,18 @@ const ld EPS = 1e-9;
 
 void solve()
 {
-    
+    ll N;
+    cin>>N;
+    ll x1,y1;
+    cin>>x1>>y1;
+
+    cus_for(i,1,4*N-1,1){
+        ll x; ll y;
+        cin>>x>>y;
+        x1 = x1^x;
+        y1 = y1^y;
+    }
+    std::cout << x1<<" "<<y1<< std::endl;
 }
 
 
