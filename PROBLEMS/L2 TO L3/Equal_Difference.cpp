@@ -31,7 +31,7 @@ const ld EPS = 1e-9;
 #define cus_rfor(i, x, k, in) for (ll i = x; i >= k; i -= in)
 
 template <typename T>
-ll getMin(T arr[], ll N)
+ll getMin(T arr, ll N)
 {
     ll min = INT_MAX;
     cus_for(i, 0, N, 1)
@@ -57,44 +57,76 @@ ll getMax(T arr[], ll N)
     }
     return max;
 }
+
 void solve()
 {
     ll N;
-    cin>>N;
+    cin >> N;
     vector<ll> arr;
-    cus_for(i,0,N,1){
-        ll x; cin>>x;
+    cus_for(i, 0, N, 1)
+    {
+        ll x;
+        cin >> x;
         arr.push_back(x);
     }
 
-    printVec(arr);
+    // printVec(arr);
 
+    sort(arr.begin(), arr.end());
 
+    if (N<3)
+    {
+        std::cout << 0 << std::endl;
+    }
 
+    else
+    {
+        ll maxN = INT_MIN;
 
+        ll currEle = arr[0];
+        ll currStreak = 1;
+
+        cus_for(i, 1, N, 1)
+        {
+            if (arr[i] == currEle)
+            {
+                currStreak++;
+                maxN = max(currStreak, maxN);
+            }
+            else
+            {
+                currEle = arr[i];
+                currStreak = 1;
+                maxN = max(currStreak, maxN);
+            }
+        }
+        std::cout << min(N-2, N - maxN) << std::endl;
+    }
 }
 
-int main(){
+int main()
+{
     ll t;
-    cin>>t;
-    while(t--){
-    solve();}
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }
 
-
 // ---> NEVER GIVE UP
 //                        ▬▬▬▬▬▬▬▬▬▬▬.◙.▬▬▬▬▬▬▬▬▬▬▬
-//                                ▂▄▄▓▄▄▂             
+//                                ▂▄▄▓▄▄▂
 //                               ◢◤██▀▀████▄▄▄▄▄▄▄▄▄▄◢◤
-//                             █▄████▄ ███▀▀▀▀▀▀▀▀▀▀╬
+//                              █▄████▄ ███▀▀▀▀▀▀▀▀▀▀╬
 //                              ◥█████◤
 //                              ══╩══╩══
 //                                ╬═╬
 //                                ╬═╬
 //                                ╬═╬
 //                                ╬═╬
-//                                ╬═╬ 
+//                                ╬═╬
 //                                ╬═╬
 //                                ╬═╬
 //                                ╬═╬  ☻/🏓Have a nice Day !!!!!!!🏓

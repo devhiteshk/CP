@@ -15,19 +15,19 @@ const ld EPS = 1e-9;
 #define cin_arr(i) cin >> arr[i];
 #define cout_arr(i) cout << arr[i];
 #define eol cout << endl;
-#define printVec(vec)                   \
-    for (ll i = 0; i < vec.size(); i++) \
-    {                                   \
-        cout << vec[i] << " ";          \
-    }                                   \
+#define printVec(vec)                    \
+    for (int i = 0; i < vec.size(); i++) \
+    {                                    \
+        cout << vec[i] << " ";           \
+    }                                    \
     eol;
-#define printArr(arr, N)       \
-    for (ll i = 0; i < N; i++) \
-    {                          \
-        cout << arr[i] << " "; \
-    }                          \
+#define printArr(arr, N)        \
+    for (int i = 0; i < N; i++) \
+    {                           \
+        cout << arr[i] << " ";  \
+    }                           \
     cout << endl;
-#define cus_for(i, x, k, in) for (ll i = x; i < k; i += in)
+#define cus_for(i, x, k, in) for (int i = x; i < k; i += in)
 #define cus_rfor(i, x, k, in) for (ll i = x; i >= k; i -= in)
 
 template <typename T>
@@ -57,36 +57,77 @@ ll getMax(T arr[], ll N)
     }
     return max;
 }
-void solve()
+
+void printMap(map<int, int> h)
 {
-    ll N;
-    cin>>N;
-    vector<ll> arr;
-    cus_for(i,0,N,1){
-        ll x; cin>>x;
-        arr.push_back(x);
+
+    map<int, int>::iterator itr;
+    for (itr = h.begin(); itr != h.end(); ++itr)
+    {
+        cout << itr->first << '\t' << itr->second
+             << '\n';
     }
-
-    printVec(arr);
-
-
-
-
+    cout << endl;
 }
 
-int main(){
+void solve()
+{
+    ll N, M, X;
+    cin >> N >> M >> X;
+
+    ll hash[10000] = {0};
+
+    vector<ll> arr;
+    cus_for(i, 0, N, 1)
+    {
+        ll temp;
+        cin >> temp;
+        arr.push_back(temp);
+        hash[arr[i]] = i + 1;
+    }
+
+    sort(arr.begin(), arr.end(), greater<int>());
+
+    vector<ll> ans;
+    ll q = 0;
+    cus_for(i, 0, N, 1)
+    {
+        if (arr[i] >= M)
+        {
+            ans.push_back(hash[arr[i]]);
+            q++;
+        }
+    }
+
+    if (q < X)
+    {
+        cus_for(i, q, X, 1)
+        {
+            ans.push_back(hash[arr[i]]);
+            q++;
+        }
+    }
+
+    sort(ans.begin(), ans.end());
+    std::cout << ans.size() << " ";
+    printVec(ans);
+}
+
+int main()
+{
     ll t;
-    cin>>t;
-    while(t--){
-    solve();}
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
     return 0;
 }
 
-
 // ---> NEVER GIVE UP
 //                        ▬▬▬▬▬▬▬▬▬▬▬.◙.▬▬▬▬▬▬▬▬▬▬▬
-//                                ▂▄▄▓▄▄▂             
-//                               ◢◤██▀▀████▄▄▄▄▄▄▄▄▄▄◢◤
+//                                ▂▄▄▓▄▄▂
+//                              ◢◤██▀▀████▄▄▄▄▄▄▄▄▄▄◢◤
 //                             █▄████▄ ███▀▀▀▀▀▀▀▀▀▀╬
 //                              ◥█████◤
 //                              ══╩══╩══
@@ -94,7 +135,7 @@ int main(){
 //                                ╬═╬
 //                                ╬═╬
 //                                ╬═╬
-//                                ╬═╬ 
+//                                ╬═╬
 //                                ╬═╬
 //                                ╬═╬
 //                                ╬═╬  ☻/🏓Have a nice Day !!!!!!!🏓
